@@ -1,21 +1,16 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
-import org.gradle.api.tasks.Input
-import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.provider.Property
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.getByType
-import com.squareup.kotlinpoet.*
-import com.squareup.kotlinpoet.*
-import java.io.File
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget // Add this import for JvmTarget
 
 plugins {
     `kotlin-dsl`
 }
 
-apply(from= "./catalog.build.gradle.kts")
 
 group = "com.google.samples.apps.nowinandroid.buildlogic"
 
@@ -121,3 +116,6 @@ sourceSets {
 tasks.named("compileKotlin") {
     dependsOn("generateTypeSafeCatalog")
 }
+
+
+apply(from= "./catalog.build.gradle.kts")
