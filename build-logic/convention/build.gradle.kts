@@ -261,6 +261,6 @@ abstract class GenerateTypeSafeCatalogTask : DefaultTask() {
     }
 
     private fun String.toCamelCase(): String = split("-", "_", ".")
-        .mapIndexed { index, s -> if (index == 0) s else s.capitalize() }
+        .mapIndexed { index, s -> if (index == 0) s else s.replaceFirstChar { it.uppercaseChar() } }
         .joinToString("")
 }
